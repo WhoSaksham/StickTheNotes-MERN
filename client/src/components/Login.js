@@ -8,7 +8,7 @@ function Login(props) {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        let url = `/${process.env.REACT_APP_LOGIN}`
+        let url = `/api/auth/login`
         const response = await fetch(url, { // Api call
             method: 'POST',
             headers: {
@@ -22,7 +22,7 @@ function Login(props) {
             localStorage.setItem('token', json.authToken)
 
             // Fetching logged-in User's Name 
-            let urL = `/${process.env.REACT_APP_USER}`
+            let urL = `/api/auth/getuser`
             const res = await fetch(urL, { // Api call
                 method: 'POST',
                 headers: {

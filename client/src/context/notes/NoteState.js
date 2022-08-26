@@ -8,7 +8,7 @@ const NoteState = (props) => {
 
     // Get all Notes
     const getNotes = async () => {
-        let url = `/${process.env.REACT_APP_GET_NOTES}`
+        let url = `/api/notes/fetchallnotes`
         const response = await fetch(url, {  // Api call
             method: 'GET',
             headers: {
@@ -23,7 +23,7 @@ const NoteState = (props) => {
 
     // Add a note
     const addNote = async (title, description, tag) => {
-        let url = `/${process.env.REACT_APP_ADD_NOTE}`
+        let url = `/api/notes/addnote`
         const response = await fetch(url, { // Api call
             method: 'POST',
             headers: {
@@ -39,7 +39,7 @@ const NoteState = (props) => {
 
     // Edit a Note
     const editNote = async (id, title, description, tag) => {
-        let url = `/${process.env.REACT_APP_EDIT_NOTE}/${id}`
+        let url = `/api/notes/updatenote/${id}`
         const response = await fetch(url, { // Api call
             method: 'PUT',
             headers: {
@@ -70,7 +70,7 @@ const NoteState = (props) => {
     const deleteNote = async (id) => {
         let confirmDel = window.confirm("Do you really want to delete that note permanently?")
         if (confirmDel) {
-            const url = `/${process.env.REACT_APP_DELETE_NOTE}/${id}`
+            const url = `/api/notes/deletenote/${id}`
             const response = await fetch(url, { // Api call
                 method: 'DELETE',
                 headers: {

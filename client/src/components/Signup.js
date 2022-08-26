@@ -8,7 +8,7 @@ function Signup(props) {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        let url = `/${process.env.REACT_APP_SIGNUP}`
+        let url = `/api/auth/createuser`
         const response = await fetch(url, { // Api call
             method: 'POST',
             headers: {
